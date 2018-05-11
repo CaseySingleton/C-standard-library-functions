@@ -76,7 +76,11 @@ SRC			= ft_memset.c\
 			  ft_lstiter.c\
 			  ft_lstmap.c\
 			  ft_lstlen.c\
-
+			  ft_pow.c\
+			  ft_numlen.c\
+			  ft_lstlen.c\
+			  ft_realloc.c\
+			  ft_issquare.c\
 
 OBJ			= $(SRC:%.c=%.o)
 
