@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd_end.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 08:56:34 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 17:41:41 by csinglet         ###   ########.fr       */
+/*   Created: 2018/05/30 19:31:20 by csinglet          #+#    #+#             */
+/*   Updated: 2018/05/30 19:31:40 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int waldo, size_t length)
+void		ft_lstadd_end(t_list **alst, t_list *new_node)
 {
-	const unsigned char		*str_cpy;
-	unsigned char			waldo_cpy;
+	t_list		*temp;
 
-	str_cpy = str;
-	waldo_cpy = waldo;
-	while (length)
+	temp = *alst;
+	if (*alst == NULL)
 	{
-		if (*str_cpy == waldo_cpy)
-		{
-			return ((void *)str_cpy);
-		}
-		str_cpy++;
-		length--;
+		*alst = new_node;
+		return ;
 	}
-	return (NULL);
+	while (temp->next != NULL)
+		temp = temp->next;
+	temp->next = new_node;
 }

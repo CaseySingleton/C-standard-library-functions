@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_realloc_str.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 08:56:34 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 17:41:41 by csinglet         ###   ########.fr       */
+/*   Created: 2018/05/28 15:37:37 by csinglet          #+#    #+#             */
+/*   Updated: 2018/05/30 14:14:19 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int waldo, size_t length)
+char		*ft_realloc_str(char *str, size_t size)
 {
-	const unsigned char		*str_cpy;
-	unsigned char			waldo_cpy;
+	char	*new;
 
-	str_cpy = str;
-	waldo_cpy = waldo;
-	while (length)
+	if (!str)
 	{
-		if (*str_cpy == waldo_cpy)
-		{
-			return ((void *)str_cpy);
-		}
-		str_cpy++;
-		length--;
+		new = ft_strnew(size);
+		return (new);
 	}
-	return (NULL);
+	if (!(new = ft_strnew(size + ft_strlen(str))))
+		return (NULL);
+	ft_memcpy(new, str, ft_strlen(str));
+	free(str);
+	str = NULL;
+	return (new);
 }

@@ -6,13 +6,12 @@
 #    By: csinglet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 18:59:57 by csinglet          #+#    #+#              #
-#    Updated: 2018/04/17 14:40:39 by csinglet         ###   ########.fr        #
+#    Updated: 2018/05/28 00:27:25 by csinglet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
 FLAGS		= -Wall -Werror -Wextra -c
-HEADER		= libft.h
 SRC			= ft_memset.c\
 			  ft_bzero.c\
 			  ft_memcpy.c\
@@ -20,8 +19,6 @@ SRC			= ft_memset.c\
 			  ft_memmove.c\
 			  ft_memchr.c\
 			  ft_memcmp.c\
-			  ft_numlen.c\
-			  ft_pow.c\
 			  ft_strlen.c\
 			  ft_strdup.c\
 			  ft_strcpy.c\
@@ -75,27 +72,29 @@ SRC			= ft_memset.c\
 			  ft_lstadd.c\
 			  ft_lstiter.c\
 			  ft_lstmap.c\
-			  ft_lstlen.c\
+			  ft_lstadd_end.c\
 			  ft_pow.c\
 			  ft_numlen.c\
 			  ft_lstlen.c\
-			  ft_realloc.c\
-			  ft_issquare.c\
-
+			  ft_wrdcount.c\
+			  ft_realloc_str.c\
+			  ft_copy_until.c\
+			  get_next_line.c
 OBJ			= $(SRC:%.c=%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	@ar rcs $(NAME) $(OBJ)
+	@make clean
 
-$(OBJ): $(SRC) $(HEADER)
-	gcc $(FLAGS) $(SRC) $(HEADER)
+$(OBJ):
+	@gcc $(FLAGS) $(SRC) -I .
 
 clean:
-	/bin/rm -f $(OBJ)
+	@/bin/rm -f $(OBJ)
 
 fclean: clean
-	/bin/rm -f $(NAME)
+	@/bin/rm -f $(NAME)
 
 re: fclean all

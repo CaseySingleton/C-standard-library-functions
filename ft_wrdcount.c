@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   ft_wrdcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 08:56:34 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 17:41:41 by csinglet         ###   ########.fr       */
+/*   Created: 2018/05/28 15:21:14 by csinglet          #+#    #+#             */
+/*   Updated: 2018/05/28 15:21:19 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *str, int waldo, size_t length)
+int		ft_wrdcount(char const *str, char c)
 {
-	const unsigned char		*str_cpy;
-	unsigned char			waldo_cpy;
+	int				count;
 
-	str_cpy = str;
-	waldo_cpy = waldo;
-	while (length)
+	if (str == NULL)
+		return (0);
+	count = 0;
+	while (*str)
 	{
-		if (*str_cpy == waldo_cpy)
-		{
-			return ((void *)str_cpy);
-		}
-		str_cpy++;
-		length--;
+		while (*str == c && *str)
+			str++;
+		if (*str)
+			count++;
+		while (*str != c && *str)
+			str++;
 	}
-	return (NULL);
+	return (count);
 }

@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/04/18 08:56:34 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 17:41:41 by csinglet         ###   ########.fr       */
+/*   Created: 2018/04/29 13:25:53 by csinglet          #+#    #+#             */
+/*   Updated: 2018/07/04 20:09:38 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef GET_NEXT_LINE
+# define GET_NEXT_LINE
 
-void	*ft_memchr(const void *str, int waldo, size_t length)
-{
-	const unsigned char		*str_cpy;
-	unsigned char			waldo_cpy;
+# define BUFF_SIZE 1000
 
-	str_cpy = str;
-	waldo_cpy = waldo;
-	while (length)
-	{
-		if (*str_cpy == waldo_cpy)
-		{
-			return ((void *)str_cpy);
-		}
-		str_cpy++;
-		length--;
-	}
-	return (NULL);
-}
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
+
+int		get_next_line(const int fd, char **line);
+
+#endif
