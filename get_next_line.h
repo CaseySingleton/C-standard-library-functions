@@ -6,14 +6,14 @@
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/29 13:25:53 by csinglet          #+#    #+#             */
-/*   Updated: 2018/07/04 20:09:38 by csinglet         ###   ########.fr       */
+/*   Updated: 2018/04/29 13:25:54 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE
-# define GET_NEXT_LINE
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-# define BUFF_SIZE 1000
+# define BUFF_SIZE 20
 
 # include <sys/types.h>
 # include <sys/stat.h>
