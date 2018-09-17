@@ -6,11 +6,11 @@
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/29 13:25:45 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 00:27:48 by csinglet         ###   ########.fr       */
+/*   Updated: 2018/07/06 19:56:30 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft/libft.h"
+#include "libft.h"
 #include "get_next_line.h"
 
 #include <stdio.h>

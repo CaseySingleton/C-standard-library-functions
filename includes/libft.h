@@ -94,5 +94,9 @@ int					ft_issquare(int num);
 int					ft_wrdcount(char const *str, char c);
 char				*ft_realloc_str(char *str, size_t size);
 int					ft_copy_until(char **dest, char *src, int stop);
+void				ft_putspace(int num_spaces);
+int					ft_ascii_cmp(char *s1, char *s2);
+void				ft_sort_list_ascii(char ***lst, int start, int stop);
+void				ft_free_strsplit(char ***strings);
 
 #endif

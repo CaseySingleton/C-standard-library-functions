@@ -6,13 +6,16 @@
 #    By: csinglet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/22 18:59:57 by csinglet          #+#    #+#              #
-#    Updated: 2018/05/28 00:27:25 by csinglet         ###   ########.fr        #
+#    Updated: 2018/09/13 20:27:33 by csinglet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
-FLAGS		= -Wall -Werror -Wextra -c
-SRC			= ft_memset.c\
+
+CC			= gcc
+CFLAGS		= -Wall -Werror -Wextra
+
+FILES		= ft_memset.c\
 			  ft_bzero.c\
 			  ft_memcpy.c\
 			  ft_memccpy.c\
@@ -79,22 +82,31 @@ SRC			= ft_memset.c\
 			  ft_wrdcount.c\
 			  ft_realloc_str.c\
 			  ft_copy_until.c\
-			  get_next_line.c
-OBJ			= $(SRC:%.c=%.o)
+			  get_next_line.c\
+			  ft_putspace.c\
+			  ft_ascii_cmp.c\
+			  ft_sort_list_ascii.c\
+			  ft_free_strsplit.c
+
+SRC			= $(addprefix srcs/, $(FILES))
+OBJ			= $(addprefix build/, $(FILES:.c=.o))
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@ar rcs $(NAME) $(OBJ)
-	@make clean
+	@ar rcs $@ $(OBJ)
 
-$(OBJ):
-	@gcc $(FLAGS) $(SRC) -I .
+build:
+	mkdir build
+
+build/%.o: srcs/%.c | build
+	@echo "Building $@"
+	@$(CC) $(FLAGS) -I includes -c $< -o $@
 
 clean:
-	@/bin/rm -f $(OBJ)
+	@rm -fr build
 
 fclean: clean
-	@/bin/rm -f $(NAME)
+	@rm -f $(NAME)
 
 re: fclean all

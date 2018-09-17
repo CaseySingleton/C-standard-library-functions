@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_copy_until.c                                    :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: csinglet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/05/28 17:12:34 by csinglet          #+#    #+#             */
-/*   Updated: 2018/05/28 17:12:59 by csinglet         ###   ########.fr       */
+/*   Created: 2018/04/20 17:16:28 by csinglet          #+#    #+#             */
+/*   Updated: 2018/04/20 17:16:34 by csinglet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-#include <stdio.h>
-
-int				ft_copy_until(char **dest, char *src, int stop)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
+	char	*new_str;
 	int		len;
+	int		index;
 
-	len = -1;
-	while (src[++len])
-		if (src[len] == stop)
-			break;
-	if (!(*dest = ft_strnew(len)))
-		return (-1);
-	*dest = (char *)ft_memcpy(*dest, src, len);
-	return (len);
+	if (s1 == NULL || s2 == NULL)
+		return (0);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	new_str = ft_strnew(len);
+	new_str[len] = '\0';
+	index = 0;
+	while (index < len)
+	{
+		if (*s1)
+			new_str[index] = *s1++;
+		else if (*s2)
+			new_str[index] = *s2++;
+		index++;
+	}
+	return (new_str);
 }
